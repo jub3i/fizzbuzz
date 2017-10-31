@@ -1,0 +1,147 @@
+<html>
+	<head>
+		<title>mnqobies cal</title>
+		<style>
+		table,  td  {
+			border: 5px solid blue;
+		}
+		
+		.hidden-cell-nqobile {
+			border: none;
+		}
+		</style>  
+	</head>
+	<body>
+	<table>
+		<tr>
+			<td id="result-row" colspan="15">&nbsp;</td>
+		</tr>	
+		<tr>
+			<td>
+				<button onclick="handleNumbers('7')">
+				7
+				</button>
+			</td>
+			<td>
+			<button onclick="handleNumbers('8')">
+				8
+			</button>
+			</td>
+			<td>
+			<button onclick="handleNumbers('9')">
+				9
+			</button>
+			</td>
+			<td>
+			<button onclick="handleOperation('+')">
+				+
+			</button>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<button onclick="handleNumbers('4')">
+			4
+			</button>
+			</td>
+			<td>
+				<button onclick="handleNumbers('5')">
+				5
+				</button>
+			</td>
+			<td>
+				<button onclick="handleNumbers('6')">
+				6
+				</button>
+			</td>
+			<td>
+				<button onclick="handleOperation('-')">
+				-
+				</button>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<button onclick="handleNumbers('1')">
+				1
+				</button>
+			</td>
+			<td>
+				<button onclick="handleNumbers('2')">
+				2
+				</button>
+			</td>
+			<td>
+				<button onclick="handleNumbers('3')">
+				3
+				</button>
+			</td>
+			<td>
+				<button onclick="handleOperation('*')">
+				*
+				</button>
+			</td>
+			<td rowspan="7">
+				<button onclick="handleEquals()">
+				=
+				</button>
+			</td>
+		<tr>
+			<td class="hidden-cell-nqobile"></td>
+			<td>
+				<button onclick="handleNumbers('0')">
+				0
+				</button>
+			</td>
+			<td class="hidden-cell-nqobile"></td>
+			<td>
+				<button onclick="handleOperation('/')">
+				/
+				</button>
+			</td>
+		</tr>		
+	</table>
+	</body>
+	<script>
+	var currentNumber = '';
+	var num1 = '';
+	var num2 = '';
+	var operation;
+	var result;
+	
+	function handleNumbers(num) {
+		currentNumber = currentNumber + num;
+		console.log(currentNumber);
+	}
+	
+	function handleOperation(op) {
+		num1 = currentNumber;
+		currentNumber = '';
+		operation = op;
+	}
+	
+	function handleEquals() {
+		num2 = currentNumber;
+		console.log(num1, num2, operation);
+		var convertedNum1 = parseInt(num1);
+		var convertedNum2 = parseInt(num2);
+		
+		if (operation === '+') {
+			result = convertedNum1 + convertedNum2;
+		} else if (operation === '-') {
+			result = convertedNum1 - convertedNum2;
+		} else if (operation === '*') {
+			result = convertedNum1 * convertedNum2;
+		} else if (operation === '/') {
+			result = convertedNum1 / convertedNum2;
+		}
+		
+		var elm = document.getElementById('result-row');
+		elm.innerHTML = result;
+	}
+	</script>
+</html>
+
+
+
+
