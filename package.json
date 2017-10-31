@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/jub3i/fizzbuzz/issues"
   },
-  "homepage": "https://github.com/jub3i/fizzbuzz#readme"
+  "homepage": "https://github.com/jub3i/fizzbuzz#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
 }
